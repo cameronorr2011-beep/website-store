@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shop.orrbiologicals.com/sitemap.xml
+Sitemap: https://store.orrbiologicals.com/sitemap.xml
