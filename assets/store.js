@@ -21,11 +21,25 @@
   var STRAIN_BY_ID = {};
   STRAINS.forEach(function (strain) { STRAIN_BY_ID[strain.id] = strain; });
 
+  var BLENDS = [
+    { id: "blend-larval", name: "Larval Blend", image: "/assets/images/blends-hero.jpg" },
+    { id: "blend-filter", name: "Sensitive Filter Feeder Blend", image: "/assets/images/blends-hero.jpg" },
+    { id: "blend-brood", name: "Broodstock Blend", image: "/assets/images/blends-hero.jpg" }
+  ];
+
+  var BLEND_SIZES = { "1l": "1 L bottle", "5l": "5 L batch", "20l": "20 L batch" };
+
+  var BLEND_BY_ID = {};
+  BLENDS.forEach(function (blend) { BLEND_BY_ID[blend.id] = blend; });
+
   var CATALOG = {
     kit: { name: "One-gallon culture kit", image: "/assets/images/culturekit-hero.jpg", kind: "kit" }
   };
   STRAINS.forEach(function (strain) {
     CATALOG[strain.id] = { name: strain.name, image: strain.image, kind: "culture" };
+  });
+  BLENDS.forEach(function (blend) {
+    CATALOG[blend.id] = { name: blend.name, image: blend.image, kind: "blend" };
   });
 
   var els = {
@@ -35,6 +49,7 @@
     lines: document.getElementById("cartLines"),
     form: document.getElementById("orderForm"),
     subtotal: document.getElementById("cartSubtotal"),
+    note: document.getElementById("cartNote"),
     status: document.getElementById("cartStatus")
   };
 
@@ -47,8 +62,13 @@
     return Object.prototype.hasOwnProperty.call(STRAIN_BY_ID, id);
   }
 
+  function isBlend(id) {
+    return Object.prototype.hasOwnProperty.call(BLEND_BY_ID, id);
+  }
+
   function isValidLine(line) {
     if (!line || !CATALOG[line.id]) return false;
+    if (isBlend(line.id)) return Object.prototype.hasOwnProperty.call(BLEND_SIZES, line.variant);
     if (line.id === "kit") return isStrain(line.variant);
     return line.variant === "culture" || line.variant === "salt";
   }
@@ -90,6 +110,7 @@
   }
 
   function unitPrice(id, variant) {
+    if (isBlend(id)) return null;
     if (id === "kit") return 2500;
     return variant === "salt" ? 2000 : 1500;
   }
@@ -99,13 +120,16 @@
   }
 
   function variantLabel(line) {
+    if (isBlend(line.id)) return BLEND_SIZES[line.variant] + " · mixed to order";
     if (line.id === "kit") return "Kit · " + STRAIN_BY_ID[line.variant].name;
     if (line.variant === "salt") return "16 oz culture + f/2 + 1,000 g marine salt";
     return "16 oz culture + 50 mL f/2";
   }
 
   function lineTotal(line) {
-    return unitPrice(line.id, line.variant) * line.qty;
+    var unit = unitPrice(line.id, line.variant);
+    if (unit === null) return null;
+    return unit * line.qty;
   }
 
   function cartCount() {
@@ -113,10 +137,15 @@
   }
 
   function cartSubtotal() {
-    return cart.reduce(function (sum, line) { return sum + lineTotal(line); }, 0);
+    return cart.reduce(function (sum, line) { return sum + (lineTotal(line) || 0); }, 0);
+  }
+
+  function hasQuotedLines() {
+    return cart.some(function (line) { return lineTotal(line) === null; });
   }
 
   function money(cents, exact) {
+    if (cents === null || cents === undefined) return "Quoted";
     var value = cents / 100;
     if (exact || value % 1 !== 0) return "$" + value.toFixed(2);
     return "$" + String(value);
@@ -126,8 +155,9 @@
 
   function addToCart(id, variant, qty) {
     if (!CATALOG[id]) return;
-    if (id === "kit" && !isStrain(variant)) return;
-    if (id !== "kit" && variant !== "culture" && variant !== "salt") return;
+    if (isBlend(id) && !Object.prototype.hasOwnProperty.call(BLEND_SIZES, variant)) return;
+    if (!isBlend(id) && id === "kit" && !isStrain(variant)) return;
+    if (!isBlend(id) && id !== "kit" && variant !== "culture" && variant !== "salt") return;
     qty = normalizeQty(qty);
     var key = lineKey(id, variant);
     var found = null;
@@ -138,7 +168,10 @@
     else cart.push({ id: id, variant: variant, qty: qty });
     saveCart();
     renderCart();
-    announce("Added to cart. " + cartCount() + " item" + (cartCount() === 1 ? "" : "s") + ", " + money(cartSubtotal(), true) + ".");
+    var total = hasQuotedLines()
+      ? money(cartSubtotal(), true) + " plus blends quoted on reply"
+      : money(cartSubtotal(), true);
+    announce("Added to cart. " + cartCount() + " item" + (cartCount() === 1 ? "" : "s") + ", " + total + ".");
     openCart();
   }
 
@@ -239,7 +272,16 @@
       els.lines.appendChild(item);
     });
 
-    if (els.subtotal) els.subtotal.textContent = money(cartSubtotal(), true);
+    if (els.subtotal) {
+      els.subtotal.textContent = hasQuotedLines() && cartSubtotal() === 0
+        ? "Quoted"
+        : money(cartSubtotal(), true);
+    }
+    if (els.note) {
+      els.note.textContent = hasQuotedLines()
+        ? "Blends are quoted with your shipping reply. Shipping is US only."
+        : "Shipping is quoted in our reply. US only. Prices in USD.";
+    }
     updateBadges();
   }
 
@@ -394,8 +436,11 @@
         "",
         lines.join("\n"),
         "",
-        "Subtotal: " + money(cartSubtotal(), true),
+        hasQuotedLines() && cartSubtotal() === 0
+          ? "Subtotal: blends quoted on reply"
+          : "Subtotal: " + money(cartSubtotal(), true) + (hasQuotedLines() ? " + blends quoted on reply" : ""),
         "Shipping: quote on reply (US only)",
+        "Includes one mini strain card per algae in the order.",
         "",
         "Name: " + name,
         "Email: " + email,
@@ -412,6 +457,66 @@
       announce("Opening your email app with the order.");
       window.location.href = href;
     });
+  }
+
+  /* ---------- strain detail dialogs ---------- */
+
+  var openDialog = null;
+  var dialogLastFocus = null;
+  var dialogs = document.querySelectorAll("[data-strain-dialog]");
+
+  function dialogFor(id) {
+    for (var i = 0; i < dialogs.length; i++) {
+      if (dialogs[i].getAttribute("data-strain-dialog") === id) return dialogs[i];
+    }
+    return null;
+  }
+
+  function openStrain(id, updateHash) {
+    var dialog = dialogFor(id);
+    if (!dialog) return;
+    dialogLastFocus = document.activeElement;
+    if (typeof dialog.showModal === "function") {
+      if (!dialog.open) dialog.showModal();
+    } else {
+      dialog.setAttribute("open", "");
+    }
+    openDialog = dialog;
+    document.body.classList.add("strain-open");
+    if (updateHash) {
+      try { window.history.replaceState(null, "", "#strain-" + id); } catch (error) { /* file:// */ }
+    }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-strain-open]"), function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      openStrain(button.getAttribute("data-strain-open"), true);
+    });
+  });
+
+  Array.prototype.forEach.call(dialogs, function (dialog) {
+    Array.prototype.forEach.call(dialog.querySelectorAll("[data-strain-close]"), function (button) {
+      button.addEventListener("click", function () {
+        if (typeof dialog.close === "function") dialog.close();
+        else dialog.removeAttribute("open");
+      });
+    });
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", function () {
+      document.body.classList.remove("strain-open");
+      if (openDialog === dialog) openDialog = null;
+      if (dialogLastFocus && typeof dialogLastFocus.focus === "function") dialogLastFocus.focus();
+      if (window.location.hash.indexOf("#strain-") === 0) {
+        try { window.history.replaceState(null, "", window.location.pathname + window.location.search); } catch (error) { /* file:// */ }
+      }
+    });
+  });
+
+  if (window.location.hash.indexOf("#strain-") === 0) {
+    openStrain(window.location.hash.replace("#strain-", ""), false);
   }
 
   renderCart();

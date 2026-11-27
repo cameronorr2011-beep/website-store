@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Store — Live Cultures, Salt &amp; Kits | Orr Biologicals</title>
-<meta name="description" content="The Orr Biologicals store: six live marine microalgae strains, 16 oz with f/2, $15 or $20 with 1,000 g of marine salt, and the $25 one-gallon culture kit. US shipping.">
+<title>Live Microalgae Cultures, Blends &amp; Kits | Orr Biologicals</title>
+<meta name="description" content="Six live marine microalgae strains in 16 oz bottles, $15 or $20 with salt, the $25 one-gallon kit, and made-to-order blends for larvae and filter feeders. US shipping.">
 <link rel="canonical" href="https://store.orrbiologicals.com/">
 <meta name="robots" content="max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,12 +12,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Questrial&amp;display=swap">
 <link rel="stylesheet" href="/assets/site.css?v=20261124a">
-<link rel="stylesheet" href="/assets/store.css?v=20261124a">
+<link rel="stylesheet" href="/assets/store.css?v=20261127a">
 <meta name="theme-color" content="#000000">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Orr Biologicals">
-<meta property="og:title" content="The Orr Biologicals store — live cultures and kits">
-<meta property="og:description" content="Six live strains at $15 a bottle, $20 with 1,000 g of salt, and the $25 kit that turns one bottle into a gallon. Build a cart and send the order.">
+<meta property="og:title" content="Live microalgae, blends and kits — the store">
+<meta property="og:description" content="Six live strains at $15 a bottle, $20 with 1,000 g of salt, the $25 kit, and blends mixed to order for larvae and sensitive filter feeders. A mini card in every box.">
 <meta property="og:url" content="https://store.orrbiologicals.com/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://store.orrbiologicals.com/assets/images/culturekit-hero.jpg">
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="1024">
 <meta property="og:image:alt" content="A one-gallon microalgae culture kit on a pale wooden bench: carboy, live culture, f/2, marine salt, air pump, LED light and Secchi stick.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Orr Biologicals store">
-<meta name="twitter:description" content="Six live strains, $15 or $20 with salt, and the $25 one-gallon kit. Build a cart and email the order.">
+<meta name="twitter:title" content="Live microalgae, blends and kits — the store">
+<meta name="twitter:description" content="Six live strains, $15 or $20 with salt, the $25 kit, and blends mixed to order. A mini card for every algae in the box.">
 <meta name="twitter:image" content="https://store.orrbiologicals.com/assets/images/culturekit-hero.jpg">
 <meta name="twitter:image:alt" content="A one-gallon microalgae culture kit on a pale wooden bench.">
 <script type="application/ld+json">
@@ -160,6 +160,7 @@
         </div>
       </details>
       <a href="https://orrbiologicals.com/culturekits">Culture kits</a>
+      <a href="/Blends/">Blends</a>
       <a href="/" aria-current="page">Store</a>
       <a href="https://orrbiologicals.com/articles/">Articles</a>
       <a href="https://orrbiologicals.com/company">About</a>
@@ -180,11 +181,12 @@
       <div>
         <p class="eyebrow">The store</p>
         <h1 id="store-title">One shelf. <span>Seven products.</span> <em>One order.</em></h1>
-        <p class="lead">Six live strains in 16 oz bottles — $15 each, or $20 with 1,000 g of marine salt — and the $25 kit that turns one bottle into a gallon. Add what you need, send the order, and we reply with the total and shipping.</p>
+        <p class="lead">Six live strains in 16 oz bottles — $15 each, or $20 with 1,000 g of marine salt — and the $25 kit that turns one bottle into a gallon. Blends for larvae and sensitive filter feeders live on <a href="/Blends/">their own page</a>. Add what you need, send the order, and we reply with the total and shipping.</p>
         <ul class="store-hero__chips">
           <li>Ships Mon–Wed</li>
           <li>US only</li>
           <li>Live arrival guaranteed</li>
+          <li>Mini card per algae</li>
           <li>Card or bank transfer</li>
         </ul>
         <div class="btn-row">
@@ -219,13 +221,14 @@
 
       <div class="prod-grid">
         <article class="prod" id="nanno" data-product="nanno">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Nannochloropsis oculata — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="nanno" aria-label="Open details for Nannochloropsis oculata">
             <img src="/assets/strains/nannochloropsis-oculata.jpg" width="800" height="800" loading="eager" decoding="async" alt="Light micrograph of Nannochloropsis oculata: many small, round green cells across a pale green field.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">2–3 µm · green · the beginner's strain</p>
-            <h3>Nannochloropsis <i>oculata</i></h3>
+            <h3><button type="button" class="prod__name" data-strain-open="nanno">Nannochloropsis <i>oculata</i></button></h3>
             <p class="prod__desc">Small round cells that grow dense in a gallon with f/2. Feeds rotifers, brine shrimp and early larvae — the one to start with.</p>
+            <button type="button" class="prod__more" data-strain-open="nanno">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-nanno">Bundle</label>
               <select id="variant-nanno" data-variant>
@@ -248,13 +251,14 @@
         </article>
 
         <article class="prod" id="tiso" data-product="tiso">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Isochrysis aff. galbana T-Iso — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="tiso" aria-label="Open details for Isochrysis aff. galbana T-Iso">
             <img src="/assets/strains/tisochrysis-lutea.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Light micrograph of Tisochrysis lutea, the T-Iso strain: many small golden-brown cells across a pale blue field.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">4–6 µm · golden-brown · DHA-rich</p>
-            <h3>Isochrysis <i>aff. galbana</i> (T-Iso)</h3>
+            <h3><button type="button" class="prod__name" data-strain-open="tiso">Isochrysis <i>aff. galbana</i> (T-Iso)</button></h3>
             <p class="prod__desc">The base feed in most oyster hatcheries. DHA-rich, flagellated and fast to divide, so it stays in the water column with gentle air.</p>
+            <button type="button" class="prod__more" data-strain-open="tiso">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-tiso">Bundle</label>
               <select id="variant-tiso" data-variant>
@@ -277,13 +281,14 @@
         </article>
 
         <article class="prod" id="pavlova" data-product="pavlova">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Pavlova lutheri — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="pavlova" aria-label="Open details for Pavlova lutheri">
             <img src="/assets/strains/pavlova-lutheri.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Epifluorescence micrograph of Pavlova lutheri: two round orange-fluorescing cells on a dark field.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">4–6 µm · DHA + EPA · scallop and mussel work</p>
-            <h3>Pavlova <i>lutheri</i></h3>
+            <h3><button type="button" class="prod__name" data-strain-open="pavlova">Pavlova <i>lutheri</i></button></h3>
             <p class="prod__desc">DHA and EPA in one cell, which is why scallop and mussel programmes use it. Slower and less forgiving than T-Iso — usually part of the ration.</p>
+            <button type="button" class="prod__more" data-strain-open="pavlova">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-pavlova">Bundle</label>
               <select id="variant-pavlova" data-variant>
@@ -306,13 +311,14 @@
         </article>
 
         <article class="prod" id="chaeto" data-product="chaeto">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Chaetoceros muelleri — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="chaeto" aria-label="Open details for Chaetoceros muelleri">
             <img src="/assets/strains/chaetoceros-muelleri.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Epifluorescence micrograph of Chaetoceros muelleri: one elongated orange-fluorescing diatom cell on a dark field.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">4–6 µm · chain diatom · needs silicate</p>
-            <h3>Chaetoceros <i>muelleri</i></h3>
+            <h3><button type="button" class="prod__name" data-strain-open="chaeto">Chaetoceros <i>muelleri</i></button></h3>
             <p class="prod__desc">A silica-walled chain diatom for late larvae and post-set. Order the f/2 with Si, or the culture stalls after a couple of divisions.</p>
+            <button type="button" class="prod__more" data-strain-open="chaeto">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-chaeto">Bundle</label>
               <select id="variant-chaeto" data-variant>
@@ -335,13 +341,14 @@
         </article>
 
         <article class="prod" id="thal" data-product="thal">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Thalassiosira pseudonana 3H — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="thal" aria-label="Open details for Thalassiosira pseudonana 3H">
             <img src="/assets/strains/thalassiosira-pseudonana.jpg" width="700" height="700" loading="lazy" decoding="async" alt="Scanning electron micrograph of Thalassiosira pseudonana: a circular silica frustule with a fine radiating pore pattern.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">3–5 µm · centric diatom · early larvae</p>
-            <h3>Thalassiosira <i>pseudonana</i> (3H)</h3>
+            <h3><button type="button" class="prod__name" data-strain-open="thal">Thalassiosira <i>pseudonana</i> (3H)</button></h3>
             <p class="prod__desc">A small centric diatom that fits early larvae where a chain would be too big. Silicate-dependent, and quick to be outcompeted between batches.</p>
+            <button type="button" class="prod__more" data-strain-open="thal">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-thal">Bundle</label>
               <select id="variant-thal" data-variant>
@@ -364,13 +371,14 @@
         </article>
 
         <article class="prod" id="tetra" data-product="tetra">
-          <a class="prod__media" href="https://orrbiologicals.com/algae#strains" aria-label="Tetraselmis suecica — micrograph credit and strain details">
+          <button type="button" class="prod__media" data-strain-open="tetra" aria-label="Open details for Tetraselmis suecica">
             <img src="/assets/strains/tetraselmis-suecica.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Light micrograph of Tetraselmis suecica: one large green oval cell with a smooth wall on a pale field.">
-          </a>
+          </button>
           <div class="prod__body">
             <p class="prod__meta">7–10 µm · green · late larvae and broodstock</p>
-            <h3>Tetraselmis <i>suecica</i></h3>
+            <h3><button type="button" class="prod__name" data-strain-open="tetra">Tetraselmis <i>suecica</i></button></h3>
             <p class="prod__desc">Large, green and robust — a late-larval and broodstock feed, and a standard rotifer enrichment. Too big for a first-feeding veliger.</p>
+            <button type="button" class="prod__more" data-strain-open="tetra">What it feeds · full detail</button>
             <div class="prod__opts">
               <label for="variant-tetra">Bundle</label>
               <select id="variant-tetra" data-variant>
@@ -394,6 +402,35 @@
       </div>
 
       <p class="store-credit">Micrographs are credited on <a href="https://orrbiologicals.com/algae#strains">the strain page</a>. Each bottle is live culture, not a paste or a concentrate.</p>
+    </div>
+  </section>
+
+  <section class="store-section" id="cards" aria-labelledby="cards-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">In every box</p>
+          <h2 id="cards-title">One mini card per algae</h2>
+        </div>
+        <p class="store-lead">Every order ships with a small reference card for each algae in it — free, and sized to live on the shelf next to the bottle rather than in a drawer.</p>
+      </div>
+      <div class="card-band">
+        <figure>
+          <img src="/assets/images/strain-cards.jpg" width="1392" height="752" loading="lazy" decoding="async" alt="Generated image of six small black reference cards fanned out on a dark bench, each with a round microscope image of a different microalga, beside a bottle of green culture.">
+        </figure>
+        <div class="card-band__copy">
+          <p class="eyebrow">What is on the card</p>
+          <h2>The numbers, at the shelf.</h2>
+          <p>Six strains look alike at seven in the morning. The card carries the parts you need while your hands are wet: what the cell is, what it eats, and how to keep it going.</p>
+          <ul class="card-band__list">
+            <li>Cell size and what it feeds</li>
+            <li>Salinity and light hours</li>
+            <li>The split ratio for that strain</li>
+            <li>A line to write the split date on</li>
+          </ul>
+          <p class="small">Blends get their own card, listing the strains in that batch and a starting feed rate. One card per algae, not one per order.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -488,7 +525,7 @@
           <p class="eyebrow">Questions</p>
           <h2 id="faq-title">Before you send the order</h2>
         </div>
-        <p class="store-lead">The five things people email about. Anything else: service@orrbiologicals.com.</p>
+        <p class="store-lead">The seven things people email about. Anything else: service@orrbiologicals.com.</p>
       </div>
       <div class="faq">
         <details>
@@ -511,10 +548,222 @@
           <summary>Do I need an account to order?</summary>
           <p class="answer">No. The cart is saved in your browser, and the order goes by email. There is no password to create and no card details are entered on this site.</p>
         </details>
+        <details>
+          <summary>What is the mini card in my order?</summary>
+          <p class="answer">One card for each algae in the box, about the size of a business card. It carries the strain, cell size, salinity, light hours, split ratio and what it feeds — the numbers you want at the shelf without opening a page. Blends get a card listing the strains in that batch.</p>
+        </details>
+        <details>
+          <summary>Where are the blends?</summary>
+          <p class="answer">On <a href="/Blends/">their own page</a>. Three mixes — Larval, Sensitive Filter Feeder and Broodstock — sold by the litre and quoted with your shipping reply, because they are mixed the week they ship.</p>
+        </details>
       </div>
     </div>
   </section>
 </main>
+
+<dialog class="strain-modal" id="strain-nanno" data-strain-dialog="nanno" aria-labelledby="strain-nanno-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · green</p>
+        <h2 id="strain-nanno-title">Nannochloropsis <i>oculata</i></h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close Nannochloropsis detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">The smallest cell we sell and the easiest to keep alive. If you have never grown algae, this is the bottle to start with.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>2–3 µm</dd></div>
+        <div><dt>Type</dt><dd>Green, round, thick-walled</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Rotifers, brine shrimp, copepods</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>A round green cell with a thick wall. It grows dense in a gallon with f/2, handles a wider temperature range than the other five strains, and survives a missed split better than any of them.</p>
+      <h3>How to grow it</h3>
+      <p>30 parts per thousand saltwater, 20–24 °C, 12 to 16 hours of light and a gentle bubble. Split it about half every week into fresh saltwater dosed with f/2 at 2 mL per litre. Keep one vessel back and you will not need to buy the strain again.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>As the only feed for oyster larvae. The thick wall makes it hard to digest, so larvae fed only this strain grow slowly. Feed it to the rotifers and brine shrimp that feed the larvae, and put T-Iso or a <a href="/Blends/">larval blend</a> in the tank.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
+
+<dialog class="strain-modal" id="strain-tiso" data-strain-dialog="tiso" aria-labelledby="strain-tiso-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · golden-brown</p>
+        <h2 id="strain-tiso-title">Isochrysis <i>aff. galbana</i> (T-Iso)</h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close T-Iso detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">The base feed in most oyster hatcheries. Golden-brown, rich in DHA, and fast to divide.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>4–6 µm</dd></div>
+        <div><dt>Type</dt><dd>Swimming golden cell</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Oyster, clam and mussel larvae from first feed</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>Two whip-like tails, a golden-brown colour and a habit of staying up in the water column. Because it swims, it does not settle out the way a diatom does, so gentle air is enough to keep it in suspension.</p>
+      <h3>How to grow it</h3>
+      <p>20–24 °C, 30 ppt, 12 to 16 hours of light, and air that moves the water without churning it. It divides faster than Pavlova. Watch the colour: rich gold is healthy, pale straw means it has run out of food.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>As the only feed after set. It is small, and juveniles do better with a diatom in the mix — that is why the <a href="/Blends/">larval blend</a> carries three strains rather than one. It is also the strain most easily damaged by heavy air, so do not treat it like a diatom culture.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
+
+<dialog class="strain-modal" id="strain-pavlova" data-strain-dialog="pavlova" aria-labelledby="strain-pavlova-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · golden-brown</p>
+        <h2 id="strain-pavlova-title">Pavlova <i>lutheri</i></h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close Pavlova detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">DHA and EPA in one cell, which is why scallop and mussel work keeps it on the shelf. Slower than T-Iso and less forgiving.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>4–6 µm</dd></div>
+        <div><dt>Type</dt><dd>Swimming golden cell</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Scallop and mussel larvae, broodstock, sensitive filter feeders</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>A small golden cell that carries both fats larvae need for growth. It is usually part of a ration rather than the whole of one, because it grows more slowly than the other flagellates and does not tolerate a rushed bench.</p>
+      <h3>How to grow it</h3>
+      <p>Keep it a little cooler than the rest — 18–22 °C — with steady light and gentle air. It is the strain most likely to sulk after a temperature swing, and the first to go pale if it is left to run past its food. Split it on time rather than when it looks dark.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>As a bulk single-strain feed, or as your first culture. Start with Nanno or T-Iso, then add this once the routine is stable. For a mixed ration already built around it, see the <a href="/Blends/">Sensitive Filter Feeder Blend</a>.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
+
+<dialog class="strain-modal" id="strain-chaeto" data-strain-dialog="chaeto" aria-labelledby="strain-chaeto-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · diatom</p>
+        <h2 id="strain-chaeto-title">Chaetoceros <i>muelleri</i></h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close Chaetoceros detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">A chain-forming diatom with a glassy shell. Built for late larvae and post-set, not for first feed.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>4–6 µm cells, joined in chains</dd></div>
+        <div><dt>Type</dt><dd>Chain diatom, silica shell</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Late larvae, post-set juveniles, broodstock</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>Cells joined end to end into short chains, each with a shell made of silica. The chain is the point: it gives a larger animal more to catch per mouthful than a single small cell would.</p>
+      <h3>How to grow it</h3>
+      <p>It needs silicate, so use f/2 with Si rather than the plain concentrate. 20–24 °C, 12 to 16 hours of light, gentle air. If the chains shorten and the colour fades after a few divisions, it has run out of silica, not light.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>For first-feeding veligers — the chains are too long for a small mouth — and in any culture where you only have plain f/2. Ask for the f/2 with Si when you order, or the culture stalls within a week.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
+
+<dialog class="strain-modal" id="strain-thal" data-strain-dialog="thal" aria-labelledby="strain-thal-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · diatom</p>
+        <h2 id="strain-thal-title">Thalassiosira <i>pseudonana</i> (3H)</h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close Thalassiosira detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">A small round diatom that fits early larvae where a chain would be too big.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>3–5 µm</dd></div>
+        <div><dt>Type</dt><dd>Round diatom, silica shell</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Early bivalve larvae, post-set, broodstock</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>A round cell with a shell like a tiny sieve. Small enough for a first-feeding larva and tough enough to survive a hatchery tank, which is why it turns up in both larval mixes and post-set rations.</p>
+      <h3>How to grow it</h3>
+      <p>Silicate again: f/2 with Si. 20–24 °C, 12 to 16 hours of light, gentle air. Clean the vessel properly between batches — this is the strain most easily outcompeted by whatever was in the carboy last time.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>In a culture without silicate, and as the only feed for adults. It is small, and a mature animal needs more per mouthful. For those, look at <a href="/Blends/">Broodstock Blend</a>.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
+
+<dialog class="strain-modal" id="strain-tetra" data-strain-dialog="tetra" aria-labelledby="strain-tetra-title">
+  <div class="strain-modal__panel">
+    <header class="strain-modal__head">
+      <div>
+        <p class="eyebrow">Strain detail · green</p>
+        <h2 id="strain-tetra-title">Tetraselmis <i>suecica</i></h2>
+      </div>
+      <button type="button" class="strain-modal__close" data-strain-close aria-label="Close Tetraselmis detail">×</button>
+    </header>
+    <div class="strain-modal__body">
+      <p class="strain-modal__lede">Large, green and robust. A late-larval and broodstock feed, and the standard rotifer enrichment.</p>
+      <dl class="strain-facts">
+        <div><dt>Cell size</dt><dd>7–10 µm</dd></div>
+        <div><dt>Type</dt><dd>Green swimming cell</dd></div>
+        <div><dt>Salt</dt><dd>30 ppt</dd></div>
+        <div><dt>Light</dt><dd>12–16 h a day</dd></div>
+        <div><dt>Split</dt><dd>Weekly, about 1:1</dd></div>
+        <div><dt>Feeds</dt><dd>Late larvae, broodstock, rotifers</dd></div>
+      </dl>
+      <h3>What it is</h3>
+      <p>An oval green cell, big for a microalga and sturdy with it. It tolerates handling, shipping and a wider temperature range than the delicate golden cells used for first feed.</p>
+      <h3>How to grow it</h3>
+      <p>30 ppt, 20–24 °C, 12 to 16 hours of light. It is the easiest of the larger strains and a good second culture once you already have Nanno or T-Iso running. Keep the air gentle; it is sturdy, but a rolling boil still damages cells.</p>
+      <h3>Where it is the wrong pick</h3>
+      <p>For a first-feeding veliger, or for a filter feeder with fine gill structures. At 7–10 µm it is simply too big to catch, and a tank fed only this will look fed while the animals starve. Use it later, or as an enrichment for the rotifers.</p>
+      <p class="strain-modal__card">Ships with a mini card for this strain.</p>
+    </div>
+    <footer class="strain-modal__foot">
+      <p><b>$15</b>16 oz culture + 50 mL f/2 · $20 with 1,000 g of salt</p>
+      <button type="button" class="btn" data-strain-close>Back to the shelf</button>
+    </footer>
+  </div>
+</dialog>
 
 <footer class="site-foot">
   <div class="wrap">
@@ -535,6 +784,8 @@
         <h2>Products</h2>
         <ul>
           <li><a href="/">Store — all products</a></li>
+          <li><a href="/Blends/">Blends — larvae and filter feeders</a></li>
+          <li><a href="/#cards">Mini strain cards</a></li>
           <li><a href="https://orrbiologicals.com/algae">Live algae, all strains</a></li>
           <li><a href="https://orrbiologicals.com/algae#media">f/2 nutrient media</a></li>
           <li><a href="https://orrbiologicals.com/culturekits">Microalgae culture kit</a></li>
@@ -583,7 +834,7 @@
       <form class="cart-form" id="orderForm" hidden>
         <div class="cart-summary">
           <div class="cart-row"><span>Subtotal</span><b id="cartSubtotal">$0.00</b></div>
-          <p class="cart-note">Shipping is quoted in our reply. US only. Prices in USD.</p>
+          <p class="cart-note" id="cartNote">Shipping is quoted in our reply. US only. Prices in USD.</p>
           <button type="button" class="cart-clear" data-clear-cart>Clear cart</button>
         </div>
         <h3>Order details</h3>
@@ -600,6 +851,6 @@
 </div>
 <p class="visually-hidden" id="cartStatus" role="status" aria-live="polite"></p>
 
-<script defer src="/assets/store.js?v=20261124a"></script>
+<script defer src="/assets/store.js?v=20261127a"></script>
 </body>
 </html>
