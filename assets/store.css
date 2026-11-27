@@ -473,3 +473,84 @@ dialog.strain-modal::backdrop{background:rgba(0,0,0,.68)}
   font-family:var(--font-mono);font-size:.56rem;letter-spacing:.05em;
   text-transform:uppercase;color:var(--ink-3);
 }
+
+/* ---------- best use, dosing, sources ---------- */
+
+.prod__best{margin:.5rem 0 0;font-size:.76rem;line-height:1.5;color:var(--ink-3)}
+.prod__best b{
+  display:block;font-family:var(--font-mono);font-size:.53rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.15rem;
+}
+.blend-card__best{
+  margin:.8rem 0 0;padding:.55rem .7rem;border-left:2px solid var(--live);
+  background:var(--paper-2);font-size:.85rem;line-height:1.55;color:var(--ink-2);
+}
+.blend-card__best b{
+  display:block;font-family:var(--font-mono);font-size:.53rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:.2rem;
+}
+.blend-pair{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:1.4rem 0 0;
+  background:var(--line);border:1px solid var(--line);
+}
+.blend-pair figure{margin:0;background:var(--white)}
+.blend-pair img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.blend-pair figcaption{
+  padding:.5rem .65rem;font-family:var(--font-mono);font-size:.54rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.use-list{list-style:none;padding:0;margin:.2rem 0 .9rem;display:grid;gap:.55rem}
+.use-list li{position:relative;padding-left:1rem;font-size:.93rem;line-height:1.62;color:var(--ink-2)}
+.use-list li::before{
+  content:"";position:absolute;left:0;top:.58em;width:.36rem;height:.36rem;
+  border-radius:50%;background:var(--live);
+}
+.use-list b{color:var(--ink)}
+.use-fig{margin:.9rem 0 1.1rem;border:1px solid var(--line);background:var(--white)}
+.use-fig img{display:block;width:100%;height:auto}
+.use-fig figcaption{
+  padding:.5rem .65rem;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:.53rem;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-3);line-height:1.6;
+}
+.evidence{margin:1rem 0 0;padding:.75rem .85rem;border:1px solid var(--line);background:var(--paper-2)}
+.evidence h4{
+  margin:0 0 .4rem;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.evidence ol{margin:0;padding-left:1rem;font-size:.73rem;line-height:1.65;color:var(--ink-3)}
+.evidence li{margin-bottom:.35rem}
+.evidence a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.dose-table{width:100%;border-collapse:collapse;margin-top:1.4rem;font-size:.9rem}
+.dose-table th,.dose-table td{text-align:left;padding:.7rem .8rem;border-bottom:1px solid var(--line);vertical-align:top}
+.dose-table thead th{
+  font-family:var(--font-mono);font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--paper-2);
+}
+.dose-table tbody th{font-weight:500;color:var(--ink)}
+.dose-table td{color:var(--ink-2)}
+.dose-table caption{caption-side:bottom;padding-top:.7rem;font-size:.72rem;line-height:1.55;color:var(--ink-3);text-align:left}
+.sources{list-style:none;counter-reset:src;padding:0;margin:1.4rem 0 0;display:grid;gap:.65rem}
+.sources li{
+  counter-increment:src;position:relative;padding-left:2rem;
+  font-size:.8rem;line-height:1.65;color:var(--ink-2);
+}
+.sources li::before{
+  content:counter(src);position:absolute;left:0;top:.05em;
+  font-family:var(--font-mono);font-size:.62rem;color:var(--ink-3);
+  border:1px solid var(--line);padding:.1rem .26rem;
+}
+.sources a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.sources cite{font-style:italic}
+.card-band figcaption{
+  padding:.55rem .8rem;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:.54rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.use-list--spaced{margin-top:1.6rem}
+.table-scroll{overflow-x:auto}
+@media (max-width:560px){
+  .blend-pair{grid-template-columns:1fr}
+  .dose-table{font-size:.82rem}
+  .dose-table th,.dose-table td{padding:.55rem .5rem}
+}
