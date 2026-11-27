@@ -11,11 +11,7 @@
 
   var STRAINS = [
     { id: "nanno", name: "Nannochloropsis oculata", image: "/assets/strains/nannochloropsis-oculata.jpg" },
-    { id: "tiso", name: "Isochrysis aff. galbana (T-Iso)", image: "/assets/strains/tisochrysis-lutea.jpg" },
-    { id: "pavlova", name: "Pavlova lutheri", image: "/assets/strains/pavlova-lutheri.jpg" },
-    { id: "chaeto", name: "Chaetoceros muelleri", image: "/assets/strains/chaetoceros-muelleri.jpg" },
-    { id: "thal", name: "Thalassiosira pseudonana (3H)", image: "/assets/strains/thalassiosira-pseudonana.jpg" },
-    { id: "tetra", name: "Tetraselmis suecica", image: "/assets/strains/tetraselmis-suecica.jpg" }
+    { id: "tiso", name: "Tisochrysis lutea (T-Iso)", image: "/assets/strains/tisochrysis-lutea.jpg" }
   ];
 
   var STRAIN_BY_ID = {};
@@ -23,8 +19,7 @@
 
   var BLENDS = [
     { id: "blend-larval", name: "Larval Blend", image: "/assets/images/blends-hero.jpg" },
-    { id: "blend-filter", name: "Sensitive Filter Feeder Blend", image: "/assets/images/blends-hero.jpg" },
-    { id: "blend-brood", name: "Broodstock Blend", image: "/assets/images/blends-hero.jpg" }
+    { id: "blend-filter", name: "Sensitive Filter Feeder Blend", image: "/assets/images/blends-hero.jpg" }
   ];
 
   var BLEND_SIZES = { "1l": "1 L bottle", "5l": "5 L batch", "20l": "20 L batch" };
