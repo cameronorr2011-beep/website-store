@@ -514,5 +514,40 @@
     openStrain(window.location.hash.replace("#strain-", ""), false);
   }
 
+  /* ---------- reliable anchor landing ---------- */
+
+  /* site.css sets html{scroll-behavior:smooth}. With smooth scrolling the
+     browser's first jump to #blends is cancelled as the page finishes
+     loading, so a link from the main site landed at the top of the store
+     instead of on the blends. Jump instantly here, then repeat once the
+     images have settled if the reader has not scrolled since. */
+  var landedY = null;
+
+  function jumpToHash() {
+    var hash = window.location.hash;
+    if (!hash || hash.indexOf("#strain-") === 0) return;
+    var id;
+    try { id = decodeURIComponent(hash.slice(1)); } catch (error) { return; }
+    var target = document.getElementById(id);
+    if (!target) return;
+    var root = document.documentElement;
+    var prior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    try { target.scrollIntoView({ block: "start", behavior: "instant" }); }
+    catch (error) { target.scrollIntoView(true); }
+    root.style.scrollBehavior = prior;
+    landedY = window.scrollY;
+  }
+
+  function landOnLoad() {
+    if (landedY === null || Math.abs(window.scrollY - landedY) < 4) jumpToHash();
+  }
+
+  if (window.location.hash) {
+    jumpToHash();
+    window.addEventListener("load", landOnLoad);
+  }
+  window.addEventListener("hashchange", function () { window.setTimeout(jumpToHash, 0); });
+
   renderCart();
 })();
